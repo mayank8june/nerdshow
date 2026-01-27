@@ -3,14 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Stacking cards effect logic
   const handleScroll = () => {
+    const triggerValue = window.innerWidth < 768 ? 150 : 300;
     cards.forEach((card, index) => {
       const nextCard = cards[index + 1];
 
       if (nextCard) {
         const nextRect = nextCard.getBoundingClientRect();
-        // If the next card's top is less than 300px from the screen top
+        // If the next card's top is less than the trigger from the screen top
         // and the current card is sticky, we start stacking it
-        if (nextRect.top < 300) {
+        if (nextRect.top < triggerValue) {
           card.classList.add('is-stacked');
         } else {
           card.classList.remove('is-stacked');
