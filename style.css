@@ -109,14 +109,40 @@ body {
     object-fit: contain;
 }
 
-.menu-toggle {
+.desktop-menu {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    cursor: pointer;
-    opacity: 0.8;
-    z-index: 1001;
-    transition: all 0.3s ease;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.desktop-nav-item {
+    color: var(--text-gray);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.desktop-nav-item:hover, .desktop-nav-item.active {
+    color: var(--text-light);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        opacity: 0.8;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
 }
 
 .menu-toggle span {
@@ -659,6 +685,10 @@ body {
 }
 
 @media (max-width: 900px) {
+    .desktop-menu {
+        display: none;
+    }
+
     .navbar {
         padding: 2rem 1.5rem;
     }
